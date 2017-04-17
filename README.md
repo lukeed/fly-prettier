@@ -4,21 +4,27 @@
 
 ## Install
 
-```a
+```sh
 npm install --save-dev fly-prettier
 ```
 
 ## Usage
 
 ```js
-export default function* () {
-  yield ...
+exports.lint = function * (fly) {
+  yield fly.source('src/**/*.js').prettier({
+    semi: false,
+    useTabs: true,
+    trailingComma: 'es5'
+  }).target('dist/js');
 }
 ```
 
 ## API
 
 ### .prettier(options)
+
+All configuration options can be found in [Prettier's API documentation](https://github.com/prettier/prettier#api).
 
 
 ## License
